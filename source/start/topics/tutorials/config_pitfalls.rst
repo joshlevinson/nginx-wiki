@@ -258,15 +258,14 @@ to be. For Drupal, Joomla, etc., just use this:
 Note - the parameter names are different based on the package you're using. For
 example:
 
-* "q" is the parameter used by Drupal, Joomla, WordPress
+* "q" is the parameter used by Drupal and Joomla
 * "page" is used by CMS Made Simple
 
-Some software don't even need the query string and can read from REQUEST_URI.
-For example, WordPress supports this:
+For WordPress, use this:
 
 .. code-block:: nginx
 
-    try_files $uri $uri/ /index.php;
+    try_files $uri $uri/ /index.php?$args;
 
 If you don't care about checking for the existence of directories, you can skip
 it by removing ``$uri/``.
